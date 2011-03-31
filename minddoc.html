@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" type="text/css" href="/css/minddoc.css"/>
+        <title>MindDoc</title>
+        <script type="text/javascript" src="http://yandex.st/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://yandex.st/jquery-ui/1.8.2/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/js/minddoc.js"></script>
+        
+        <script>
+            $(document).ready(function(){
+
+                MindNode.create();
+
+				$(document)
+                    .click(function(){
+                        MindNode.current().deactivate();
+                    })
+                    .keydown(function(e){
+                        console.log(e.which);
+                        if (!MindNode.current().isEditing()) {
+                            // Normal mode
+                            MindNode.handleKey(e);
+                        }
+                    })
+
+                $('#minddoc').sortable({
+                    delay: 200, 
+                    cursor: 'move', 
+                    axis: 'y',
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="buffer">
+        </div>
+        <div id="template-container">
+            <div class="container">
+                <div class="cell" style="width: 16px">
+                    <div class="collapse-button button">&nbsp;</div>
+                </div>
+                <div class="cell">
+                    <div class="node">
+                        <div class="head editable" contenteditable="true">&nbsp;</div>
+                        <div class="body editable" contenteditable="true" style="display: none"></div>
+                    </div>
+                </div>
+                <div class="cell" style="width: 48px">
+                    <div class="remove-button button">&nbsp;</div>
+                    <div class="left-button button">&nbsp;</div>
+                    <div class="right-button button">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+		<div class="layout">
+            <h2>MindDoc</h2>
+			<div id="minddoc">
+			</div>
+			<div id="comment">
+				<p><strong>2011-03-29</strong></p>
+
+				<p>
+					что должно работать:
+					<ul>
+						<li>редактируется заголовок и тело блока</li>
+						<li>enter в заголовке перемещает курсор в тело, в заголовке может быть только одна строка</li>
+						<li>ctrl+enter создает новый блок в конце</li>
+						<li>мышью можно выделить другой блок или сбросить выделение</li>
+					</ul>
+				</p>
+
+				<p><strong>2011-03-30</strong></p>
+
+				<p>
+					что должно работать:
+					<ul>
+						<li>блок должен создаваться пустым, возможен блок с пустым заголовком</li>
+						<li>режим редактирования и режим навигации</li>
+						<li>управление клавишами</li>
+						<li>перемещение</li>
+						<li>иерархия</li>
+						<li>сворачивание</li>
+					</ul>
+				</p>
+
+				<p>
+					чего пока нет:
+					<ul>
+						<li>copy-paste</li>
+						<li>всплывающая  менюшка</li>
+						<li>не видно пустой блок, плохо видно свернутый</li>
+						<!--<li>авторизация</li>-->
+						<!--<li>сохранение</li>-->
+						<!--<li>несколько доков у юзера</li>-->
+						<!--<li>общий доступ</li>-->
+						<!--<li>навигация в стиле Vim</li>-->
+					</ul>
+				</p>
+
+			</div>
+		</div>
+    </body>
+</html>

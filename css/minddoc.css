@@ -1,0 +1,84 @@
+* {
+    font-family: Verdana, sans-serif;
+}
+
+.node {
+    border: 2px #fff solid;
+    border-radius: 5px;
+
+    min-width: 200px;
+    padding: 5px;
+}
+
+.active {
+    border: 2px #26a9e2 solid;
+}
+
+.head {
+    font-weight: bold;
+}
+
+.button {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+	visibility: hidden;
+    display: table-cell;
+}
+
+.collapse-button {
+    background: url('/img/icons/minus-white.png') no-repeat;
+}
+
+.remove-button {
+    background: url('/img/icons/minus-circle.png') no-repeat;
+}
+
+.left-button {
+    background: url('/img/icons/arrow-180.png') no-repeat;
+}
+
+.right-button {
+    background: url('/img/icons/arrow.png') no-repeat;
+}
+
+.unwind {
+    background: url('/img/icons/plus-white.png') no-repeat;
+	visibility: visible;
+}
+
+.container {
+}
+
+.container:hover > .cell > .button {
+	visibility: visible;
+}
+
+.container .container {
+	margin-left: 15px;
+}
+
+.cell {
+    display: table-cell;
+    padding: 5px;
+}
+
+#template-container {
+    display: none;
+}
+
+.layout > div {
+	display: table-cell;
+}
+
+#minddoc {
+	/*width: 300px;*/
+}
+
+#comment {
+	font-size: 12px;
+}
+
+#buffer {
+    display: none;
+}
